@@ -1,8 +1,36 @@
 import unittest
+import string
+import random
 from credit_card_validator import credit_card_validator
 
 class TestCase(unittest.TestCase):
   pass
+
+
+def build_test_func(expected, test_case, func_under_test, message):
+  def test(self):
+    result = func_under_test(test_case)
+    self.assertEqual(expected, result, message.format(test_case, expected, result))
+  return test
+
+
+def generate_testcases(tests_to_generate=100):
+  for i in range(tests_to_generate):
+    expected = True
+    # Random length
+      length = random.randint(13,17)
+
+    # Generate password
+    cc = gen_cc('', length)
+    # Build test function
+    message = 'Test case: {}, Expected: {}, Result: {}'
+    new_test = build_test_func(expected, cc, credit_card_validator, message)
+    setattr(TestCase, 'test_{}'.format(cc), new_test)
+
+
+def gen_cc(prefix, length):
+    cc_number = prefix
+    cc_number = cc_number + ''.join(random.choice(string.digits) for i in range(length - len(prefix)))
 
 
 if __name__ == '__main__':
