@@ -34,4 +34,5 @@ def gen_cc(prefix, length):
 
 
 if __name__ == '__main__':
+    generate_testcases()
     unittest.main()
