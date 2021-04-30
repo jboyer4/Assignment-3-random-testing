@@ -49,6 +49,7 @@ def gen_cc(prefix, length):
     cc_number = cc_number + ''.join(random.choice(string.digits) for i in range(length - len(prefix)))
     return cc_number
 
+
 if __name__ == '__main__':
     generate_testcases()
     unittest.main()
