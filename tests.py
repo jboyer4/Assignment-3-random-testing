@@ -19,7 +19,7 @@ def generate_testcases(tests_to_generate=100):
     for i in range(tests_to_generate):
         expected = True
         # Random length
-        length = random.randint(13,17)
+        length = random.randint(13, 17)
         # Generate password
         cc = gen_cc('', length)
         # Get prefix type
@@ -37,12 +37,12 @@ def generate_testcases(tests_to_generate=100):
             # test_mc2()
         elif (prefix == 'amex'):
             pass
-            # test_amex()        
+            # test_amex()
         # Build test function
         message = 'Test case: {}, Expected: {}, Result: {}'
         new_test = build_test_func(expected, cc, credit_card_validator, message)
         setattr(TestCase, 'test_{}'.format(cc), new_test)
-    
+
 
 def gen_cc(prefix, length):
     cc_number = prefix
