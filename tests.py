@@ -28,13 +28,13 @@ def generate_testcases(tests_to_generate=100):
     if (prefix == 'visa'):
         pass
         # test_visa()
-    elif (prefix = 'mc1'):
+    elif (prefix == 'mc1'):
         pass
         # test_mc1()
-    elif (prefix = 'mc2'):
+    elif (prefix == 'mc2'):
         pass
         # test_mc2()
-    elif (prefix = 'amex'):
+    elif (prefix == 'amex'):
         pass
         # test_amex()        
     # Build test function
