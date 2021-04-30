@@ -41,9 +41,6 @@ def generate_testcases(tests_to_generate=100):
     message = 'Test case: {}, Expected: {}, Result: {}'
     new_test = build_test_func(expected, cc, credit_card_validator, message)
     setattr(TestCase, 'test_{}'.format(cc), new_test)
-
-
-def get_prefix(valid = true):
     
 
 def gen_cc(prefix, length):
