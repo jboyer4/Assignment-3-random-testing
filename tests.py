@@ -23,7 +23,7 @@ def generate_testcases(tests_to_generate=100):
         # Generate password
         cc = gen_cc('', length)
         # Get prefix type
-        prefix_list = [visa, mc1, mc2, amex]
+        prefix_list = ['visa', 'mc1', 'mc2', 'amex']
         prefix = random.choice(prefix_list)
         # Generate prefix value
         if (prefix == 'visa'):
