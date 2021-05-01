@@ -15,7 +15,7 @@ def build_test_func(expected, test_case, func_under_test, message):
     return test
 
 
-def generate_testcases(tests_to_generate=10000):
+def generate_testcases(tests_to_generate=10000000):
     for i in range(tests_to_generate):
         expected = True
         # Random length
@@ -41,6 +41,7 @@ def generate_testcases(tests_to_generate=10000):
         # Build test function
         message = 'Test case: {}, Expected: {}, Result: {}'
         new_test = build_test_func(expected, cc, credit_card_validator, message)
+        print(length, prefix, cc)
         setattr(TestCase, 'test_{}'.format(cc), new_test)
 
 
