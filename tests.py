@@ -25,23 +25,39 @@ def generate_testcases(tests_to_generate=10000):
         # Get prefix type
         prefix_list = ['visa', 'mc1', 'mc2', 'amex']
         prefix = random.choice(prefix_list)
+        prefix_value = ''
+        
         # Generate prefix value
         if (prefix == 'visa'):
-            pass
-            # test_visa()
+            prefix_value = test_visa()
         elif (prefix == 'mc1'):
-            pass
-            # test_mc1()
+            test_mc1()
         elif (prefix == 'mc2'):
-            pass
-            # test_mc2()
+            test_mc2()
         elif (prefix == 'amex'):
-            pass
-            # test_amex()
+            test_amex()
         # Build test function
         message = 'Test case: {}, Expected: {}, Result: {}'
         new_test = build_test_func(expected, cc, credit_card_validator, message)
         setattr(TestCase, 'test_{}'.format(cc), new_test)
+
+
+# Test valid visa prefix or edge cases
+def test_visa():
+    options = ['3', '4', '4', '5']
+    return random.choice(options)
+
+def test_mc1():
+    options = ['50', '51', '52', '53', '54', '55', '56']
+    return random.choice(options)
+
+def test_mc2():
+    options = ['2220', '2221', '2222', '2719', '2720', '2721']
+    return random.choice(options)
+
+def test_amex():
+    options = ['33', '34', '35', '36', '37']
+    return random.choice(options)
 
 
 def gen_cc(prefix, length):
