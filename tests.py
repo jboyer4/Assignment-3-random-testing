@@ -20,13 +20,13 @@ def generate_testcases(tests_to_generate=100000):
         expected = True
         # Random length
         close_len = random.randint(14, 17)
-        any_len = random.randint(0,100)
-        length = random.choose([close_len, any_len])
+        any_len = random.randint(0, 100)
+        length = random.choice([close_len, any_len])
         # Get prefix type
         prefix_list = ['visa', 'mc1', 'mc2', 'amex', '']
         prefix = random.choice(prefix_list)
         prefix_value = ''
-        
+
         # Generate prefix value
         if (prefix == 'visa'):
             prefix_value = test_visa()
@@ -36,7 +36,7 @@ def generate_testcases(tests_to_generate=100000):
             prefix_value = test_mc2()
         elif (prefix == 'amex'):
             prefix_value = test_amex()
-        
+
         # Generate password
         cc = gen_cc(prefix_value, length)
 
@@ -52,13 +52,16 @@ def test_visa():
     options = ['3', '4', '4', '5']
     return random.choice(options)
 
+
 def test_mc1():
     options = ['50', '51', '52', '53', '54', '55', '56']
     return random.choice(options)
 
+
 def test_mc2():
     options = ['2220', '2221', '2222', '2719', '2720', '2721']
     return random.choice(options)
+
 
 def test_amex():
     options = ['33', '34', '35', '36', '37']
