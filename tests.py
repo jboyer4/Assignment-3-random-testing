@@ -40,10 +40,10 @@ def generate_testcases(tests_to_generate=20000):
 
         # Generate password
         # cc = gen_cc(prefix_value, length)
-
+        cc = gen_cc_dumb()
         # Build test function
         message = 'Test case: {}, Expected: {}, Result: {}'
-        new_test = build_test_func(expected, gen_cc_dumb(), credit_card_validator, message)
+        new_test = build_test_func(expected, cc, credit_card_validator, message)
         # print(length, prefix, cc)
         setattr(TestCase, 'test_{}'.format(cc), new_test)
 
