@@ -15,14 +15,14 @@ def build_test_func(expected, test_case, func_under_test, message):
     return test
 
 
-def generate_testcases(tests_to_generate=2000):
+def generate_testcases(tests_to_generate=20000):
     for i in range(tests_to_generate):
         expected = True
         # Random length
-        # close_len = random.randint(14, 17)
-        close_len = 0
-        any_len = random.randint(0, 1)
-        length = random.choice([close_len, any_len])
+        length = random.randint(14, 17)
+        # close_len = 0
+        # any_len = random.randint(0, 1)
+        # length = random.choice([close_len, any_len])
         # Get prefix type
         prefix_list = ['visa', 'mc1', 'mc2', 'amex', '']
         prefix = random.choice(prefix_list)
