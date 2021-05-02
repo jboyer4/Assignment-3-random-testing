@@ -15,7 +15,7 @@ def build_test_func(expected, test_case, func_under_test, message):
     return test
 
 
-def generate_testcases(tests_to_generate=500000):
+def generate_testcases(tests_to_generate=200000):
     for i in range(tests_to_generate):
         expected = True
         # Random length
@@ -27,16 +27,16 @@ def generate_testcases(tests_to_generate=500000):
         prefix_list = ['visa', 'mc1', 'mc2', 'amex', '']
         prefix = random.choice(prefix_list)
         prefix_value = ''
-
+        prefix_value = test_visa()
         # Generate prefix value
-        if (prefix == 'visa'):
-            prefix_value = test_visa()
-        elif (prefix == 'mc1'):
-            prefix_value = test_mc1()
-        elif (prefix == 'mc2'):
-            prefix_value = test_mc2()
-        elif (prefix == 'amex'):
-            prefix_value = test_amex()
+        # if (prefix == 'visa'):
+        #    prefix_value = test_visa()
+        # elif (prefix == 'mc1'):
+        #    prefix_value = test_mc1()
+        # elif (prefix == 'mc2'):
+        #    prefix_value = test_mc2()
+        # elif (prefix == 'amex'):
+        #    prefix_value = test_amex()
 
         # Generate password
         cc = gen_cc(prefix_value, length)
