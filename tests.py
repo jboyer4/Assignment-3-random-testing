@@ -15,7 +15,7 @@ def build_test_func(expected, test_case, func_under_test, message):
     return test
 
 
-def generate_testcases(tests_to_generate=200000):
+def generate_testcases(tests_to_generate=20000):
     for i in range(tests_to_generate):
         expected = True
         # Random length
@@ -24,10 +24,10 @@ def generate_testcases(tests_to_generate=200000):
         # any_len = random.randint(0, 1)
         # length = random.choice([close_len, any_len])
         # Get prefix type
-        prefix_list = ['visa', 'mc1', 'mc2', 'amex', '']
-        prefix = random.choice(prefix_list)
-        prefix_value = ''
-        prefix_value = test_visa()
+        # prefix_list = ['visa', 'mc1', 'mc2', 'amex', '']
+        # prefix = random.choice(prefix_list)
+        # prefix_value = ''
+        # prefix_value = test_visa()
         # Generate prefix value
         # if (prefix == 'visa'):
         #    prefix_value = test_visa()
@@ -39,11 +39,11 @@ def generate_testcases(tests_to_generate=200000):
         #    prefix_value = test_amex()
 
         # Generate password
-        cc = gen_cc(prefix_value, length)
+        # cc = gen_cc(prefix_value, length)
 
         # Build test function
         message = 'Test case: {}, Expected: {}, Result: {}'
-        new_test = build_test_func(expected, cc, credit_card_validator, message)
+        new_test = build_test_func(expected, gen_cc_dumb(), credit_card_validator, message)
         print(length, prefix, cc)
         setattr(TestCase, 'test_{}'.format(cc), new_test)
 
@@ -74,6 +74,8 @@ def gen_cc(prefix, length):
     cc_number = cc_number + ''.join(random.choice(string.digits) for i in range(length - len(prefix)))
     return cc_number
 
+def gen_cc_dumb():
+    return random.randint(3300000000000000, 5700000000000000)
 
 if __name__ == '__main__':
     generate_testcases()
