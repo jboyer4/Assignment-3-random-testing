@@ -44,7 +44,7 @@ def generate_testcases(tests_to_generate=20000):
         # Build test function
         message = 'Test case: {}, Expected: {}, Result: {}'
         new_test = build_test_func(expected, gen_cc_dumb(), credit_card_validator, message)
-        print(length, prefix, cc)
+        # print(length, prefix, cc)
         setattr(TestCase, 'test_{}'.format(cc), new_test)
 
 
@@ -74,8 +74,10 @@ def gen_cc(prefix, length):
     cc_number = cc_number + ''.join(random.choice(string.digits) for i in range(length - len(prefix)))
     return cc_number
 
+
 def gen_cc_dumb():
     return random.randint(3300000000000000, 5700000000000000)
+
 
 if __name__ == '__main__':
     generate_testcases()
