@@ -15,7 +15,7 @@ def build_test_func(expected, test_case, func_under_test, message):
     return test
 
 
-def generate_testcases(tests_to_generate=20000):
+def generate_testcases(tests_to_generate=200000):
     for i in range(tests_to_generate):
         expected = True
         # Random length
