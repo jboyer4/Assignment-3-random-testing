@@ -76,7 +76,7 @@ def gen_cc(prefix, length):
 
 
 def gen_cc_dumb():
-    return random.randint(3300000000000000, 5700000000000000)
+    return random.randint(330000000000000, 5700000000000000)
 
 
 if __name__ == '__main__':
